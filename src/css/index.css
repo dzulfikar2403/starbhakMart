@@ -33,3 +33,7 @@ input:focus{
 .swiper-pagination-wrapper{
   @apply bg-white p-2
 }
+
+.iconBack{
+  @apply fixed top-[15px] left-[20px] w-6 h-6
+}

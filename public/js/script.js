@@ -247,12 +247,19 @@ let payment = ()=>{
       invoice.style.display = "block";
       
 
-      let printDoc = document.querySelector("#main").innerHTML = invoice.innerHTML;
+      document.querySelector("#main").innerHTML = invoice.innerHTML;
       
-    
-      html2pdf().from(printDoc).save();
+      let iconBack = document.createElement("span");
+      iconBack.innerHTML = '<i class="fa-solid fa-angles-left"></i>'
         
+      document.body.append(iconBack);
+      iconBack.classList.add("iconBack");
+
+      iconBack.addEventListener("click",()=>{
+        location.reload()
+      });
     }
+
   });
 }
 
