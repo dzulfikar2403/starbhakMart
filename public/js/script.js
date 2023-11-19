@@ -6,6 +6,9 @@ let bill = document.querySelector(".bill");
 let total = document.getElementById("total");
 let disc = document.getElementById("discount");
 let getTax = document.getElementById("tax");
+let plus;
+let minus;
+let trashIcon;
 
 cardShopping.forEach((e, i) => {
   e.addEventListener("click", (e) => {
@@ -28,16 +31,15 @@ cardShopping.forEach((e, i) => {
     let pBill = document.createElement("p");
     let numb = 1;
     pBill.innerHTML = numb;
-    // pBill.style.padding = "0px,4px";
 
     h2.after(pBill);
 
-    let minus = document.createElement("span");
+    minus = document.createElement("span");
     minus.innerHTML = '<i class="fa-solid fa-minus"></i>';
 
     pBill.before(minus);
 
-    let plus = document.createElement("span");
+    plus = document.createElement("span");
     plus.innerHTML = '<i class="fa-solid fa-plus"></i>';
 
     pBill.after(plus);
@@ -54,8 +56,7 @@ cardShopping.forEach((e, i) => {
 
     spanNew.append(h3);
 
-    // let divChild = document.querySelector("#bill")
-    let trashIcon = document.createElement("span");
+    trashIcon = document.createElement("span");
     trashIcon.innerHTML = '<i class="fa-solid fa-trash" style="color: #c62a51;"></i>';
 
     div.append(trashIcon);
@@ -65,6 +66,8 @@ cardShopping.forEach((e, i) => {
 
     trashIcon.addEventListener("click", (e, i) => {
       div.remove();
+
+      totalAmount();
     });
 
     plus.addEventListener("click", () => {
@@ -72,12 +75,10 @@ cardShopping.forEach((e, i) => {
       pBill.innerHTML = numb;
       console.log(price);
 
-      // var b = parseInt(document.querySelector(".bill-childH3").innerHTML,10);
       var curP = price[i].textContent * parseInt(numb);
       console.log(price[i].textContent);
       h3.innerText = curP;
 
-      // totalAmount()
       totalAmount();
     });
 
@@ -110,7 +111,6 @@ let totalAmount = (e, i) => {
     let tax = 200;
     let discPersen= ((5/100) * parseInt(v.textContent));
     let hasil = ((parseInt(v.textContent) - discPersen) + tax);
-    // hasil = (hasil * numb) / numb ;
 
     jumlah += hasil;
   });
@@ -118,25 +118,55 @@ let totalAmount = (e, i) => {
   total.innerHTML = jumlah;
 };
 
-// total.innerHTML = totalAmount();
+// name of item
+let nameProduct;
 
 productsName.forEach((e, i) => {
-  let nameProduct = ["Nasi Ayam bakar", "Aqua", "Paket Donat salju", "American Pizza", "Japanese Ramen", "Chicken Curry", "Oreo Milkshake"];
+  nameProduct = ["Nasi Ayam bakar", "Aqua", "Paket Donat salju", "American Pizza", "Japanese Ramen", "Chicken Curry", "Oreo Milkshake"];
 
   e.innerText = nameProduct[i];
 });
 
+
+// price of item
 price.forEach((e, i) => {
   let prices = [20000, 4000, 6000, 98000, 34000, 48000, 18000, 25000];
   e.innerHTML = prices[i];
 });
 
 
-let print = (e)=>{
-  if(e.keycode === 13){
-    alert("dbakjhsdbska")
-  }
-}
+// search func , fix later
+// let search = document.querySelector("#search");
+
+// search.addEventListener("keyup",(e)=>{
+//   // if(e.key === 'Enter'){
+//     fungsiCari()
+//   // }
+// })
+
+// let fungsiCari = ()=>{
+//   //ambil input user
+//   let searchValue = search.value.toLowerCase();
+
+//   // filter array nama product
+//   let nameProductFilter = nameProduct.filter((e)=>{
+//     return e.toLowerCase().includes(searchValue);
+//   })
+
+//   let divAll =  document.querySelectorAll("#bill");
+
+//   // // divAll.innerHTML = ""
+
+
+//   nameProductFilter.forEach((e,i)=>{
+//     i.textContent = e;
+//     console.log(e);
+//   });
+  
+
+//   // console.log(allNameProduct);
+// }
+
 
 
 //swipper js
@@ -157,16 +187,12 @@ let pictures = [
 
 let slideEl = document.querySelectorAll(".swiper-slide");
 
-// pictures.forEach((e,i)=>{
-// });
-
 slideEl.forEach((e,i)=>{
   e.style.backgroundImage = `url(${pictures[i].pic})`;
   e.style.objectFit = `cover`;
   e.style.backgroundPosition = `50% 50%`;
   e.style.backgroundRepeat = `no-repeat`;
   e.style.backgroundSize = `100%`;
-  console.log(pictures[i].pic);
 });
 
 const swiper = new Swiper('.swiper', {
@@ -195,6 +221,7 @@ const swiper = new Swiper('.swiper', {
 });
 
 
+// payment info
 let payment = ()=>{
   let billDiv = document.querySelectorAll("#bill");
   let totalAll = document.querySelectorAll("#total")
@@ -216,8 +243,15 @@ let payment = ()=>{
         timer: 1500
       });
 
-      e.remove()
-      total.textContent = ""
+      let invoice = document.getElementById("invoice");
+      invoice.style.display = "block";
+      
+
+      let printDoc = document.querySelector("#main").innerHTML = invoice.innerHTML;
+      
+    
+      html2pdf().from(printDoc).save();
+        
     }
   });
 
@@ -225,22 +259,3 @@ let payment = ()=>{
 
 
 
-
-
-// products.forEach((e,i)=>{
-// let acak = ()=>{
-//   let random = Math.random();
-
-//   if(random < 0.20) return i[0];
-//   if(random >= 0.20 && random < 0.33) return i[1];
-//   if(random >= 0.33 && random <= 0.44) return i[2];
-//   if(random > 0.44 && random <= 0.52) return i[3];
-//   if(random > 0.52 && random <= 0.68) return i[4];
-//   if(random > 0.68 && random <= 0.80) return i[5];
-//   if(random > 0.80) return i[6];
-
-// }
-
-// return i.innerText = acak();
-
-// });
