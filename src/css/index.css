@@ -35,5 +35,5 @@ input:focus{
 }
 
 .iconBack{
-  @apply fixed top-[15px] left-[20px] w-6 h-6
+  @apply fixed top-[15px] left-[20px] w-[175px] h-[135px] cursor-pointer
 }

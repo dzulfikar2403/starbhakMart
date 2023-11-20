@@ -23,6 +23,7 @@ cardShopping.forEach((e, i) => {
 
     let h2 = document.createElement("h2");
     h2.innerHTML = productsName[i].innerText;
+    h2.setAttribute("id", "h2bill");
     h2.style.fontWeight = "bold";
     h2.style.fontSize = "16px";
 
@@ -51,7 +52,6 @@ cardShopping.forEach((e, i) => {
 
     let h3 = document.createElement("h3");
     h3.innerHTML = price[i].innerText;
-    h2.setAttribute("id", "h2bill");
     h3.classList.add("bill-childH3");
 
     spanNew.append(h3);
@@ -63,6 +63,17 @@ cardShopping.forEach((e, i) => {
 
     div.style.display = "flex";
     div.style.justifyContent = "space-between";
+
+    
+    //1 item 
+    // let allBill = document.querySelectorAll("#bill");
+    // allBill.forEach((e,i) => {
+    //   if(e === e){
+    //     console.log("test");
+    //   }
+    // });
+
+    // console.log(allBill)
 
     trashIcon.addEventListener("click", (e, i) => {
       div.remove();
@@ -106,7 +117,7 @@ let totalAmount = (e, i) => {
   let h3ol = document.querySelectorAll(".bill-childH3");
   let jumlah = 0;
 
-  console.log(document.querySelectorAll(".bill-childH3"));
+  // console.log(document.querySelectorAll(".bill-childH3"));
   h3ol.forEach((v, i) => {
     let tax = 200;
     let discPersen= ((5/100) * parseInt(v.textContent));
@@ -119,7 +130,6 @@ let totalAmount = (e, i) => {
 };
 
 // name of item
-let nameProduct;
 
 productsName.forEach((e, i) => {
   nameProduct = ["Nasi Ayam bakar", "Aqua", "Paket Donat salju", "American Pizza", "Japanese Ramen", "Chicken Curry", "Oreo Milkshake"];
@@ -135,10 +145,10 @@ price.forEach((e, i) => {
 });
 
 
-// search func , fix later
+// search func. can fix,but later
 // let search = document.querySelector("#search");
 
-// search.addEventListener("keyup",(e)=>{
+// search.addEventListener("input",(e)=>{
 //   // if(e.key === 'Enter'){
 //     fungsiCari()
 //   // }
@@ -153,13 +163,23 @@ price.forEach((e, i) => {
 //     return e.toLowerCase().includes(searchValue);
 //   })
 
-//   let divAll =  document.querySelectorAll("#bill");
-
-//   // // divAll.innerHTML = ""
-
+//   products.forEach((e,i) =>{
+//     document.getElementById('kotakProduct').innerHTML = "";
+//     // document.querySelector('.swiper').innerHTML = "";
+//   })
 
 //   nameProductFilter.forEach((e,i)=>{
-//     i.textContent = e;
+//     document.getElementById('kotakProduct').innerHTML += `<div id="product" class="shadow w-full rounded-md mt-2 overflow hover:scale-110 transition-all ">
+//     <img src="./img/nasi_ayam_bakar.jpg" alt="" id="gambar" class="object-cover object-center h-28 w-full">
+//     <div>
+//       <h2 id="product-name" class="font-bold p-1  ">${e}</h2>
+//       <div class="flex justify-between ">
+//         <span>Rp.<p id="price" class="inline text-base pl-1  font-mono "></p></span>
+//         <span id="card-shopping" class="px-2 py-1 rounded-tl-xl bg-[skyblue]  text-purple-100 hover:bg-[royalblue] cursor-pointer "><i class="fa-solid fa-cart-shopping fill-current"></i></span>
+//       </div>
+//     </div>
+//   </div>`;
+
 //     console.log(e);
 //   });
   
@@ -250,14 +270,18 @@ let payment = ()=>{
       document.querySelector("#main").innerHTML = invoice.innerHTML;
       
       let iconBack = document.createElement("span");
-      iconBack.innerHTML = '<i class="fa-solid fa-angles-left"></i>'
+      iconBack.innerHTML = '<img src="./img/WhatsApp_Image_2023-11-17_at_17.12.26-removebg-preview.png" alt="" width=175px" >';
+
         
       document.body.append(iconBack);
       iconBack.classList.add("iconBack");
 
+      
       iconBack.addEventListener("click",()=>{
         location.reload()
       });
+
+      html2pdf().from(invoice.innerHTML).save();
     }
 
   });
