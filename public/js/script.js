@@ -6,9 +6,9 @@ let bill = document.querySelector(".bill");
 let total = document.getElementById("total");
 let disc = document.getElementById("discount");
 let getTax = document.getElementById("tax");
-let plus;
-let minus;
-let trashIcon;
+let plus,minus,trashIcon;
+
+let invoice = document.getElementById("invoice");
 
 cardShopping.forEach((e, i) => {
   e.addEventListener("click", (e) => {
@@ -64,7 +64,7 @@ cardShopping.forEach((e, i) => {
     div.style.display = "flex";
     div.style.justifyContent = "space-between";
 
-    
+
     //1 item 
     // let allBill = document.querySelectorAll("#bill");
     // allBill.forEach((e,i) => {
@@ -130,7 +130,6 @@ let totalAmount = (e, i) => {
 };
 
 // name of item
-
 productsName.forEach((e, i) => {
   nameProduct = ["Nasi Ayam bakar", "Aqua", "Paket Donat salju", "American Pizza", "Japanese Ramen", "Chicken Curry", "Oreo Milkshake"];
 
@@ -263,9 +262,7 @@ let payment = ()=>{
         timer: 1500
       });
 
-      let invoice = document.getElementById("invoice");
       invoice.style.display = "block";
-      
 
       document.querySelector("#main").innerHTML = invoice.innerHTML;
       
@@ -285,7 +282,12 @@ let payment = ()=>{
     }
 
   });
+
 }
+
+//aos
+AOS.init();
+  
 
 
 
