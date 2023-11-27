@@ -11,8 +11,9 @@ let plus,minus,trashIcon;
 let invoice = document.getElementById("invoice");
 
 document.getElementById('cart').addEventListener('click',()=>{
-  invoice.classList.toggle('tutup-cart')
-  document.getElementById('bungkus').classList.toggle('layar-bungkus')
+  document.getElementById('payBtn').classList.toggle('tutup-cart');
+  invoice.classList.toggle('tutup-cart');
+  document.getElementById('bungkus').classList.toggle('layar-bungkus');
 })
 
 cardShopping.forEach((e, i) => {
