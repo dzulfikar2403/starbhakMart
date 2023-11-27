@@ -10,6 +10,11 @@ let plus,minus,trashIcon;
 
 let invoice = document.getElementById("invoice");
 
+document.getElementById('cart').addEventListener('click',()=>{
+  invoice.style.display = 'block';
+  document.getElementById('bungkus').style.width = '56rem'
+})
+
 cardShopping.forEach((e, i) => {
   e.addEventListener("click", (e) => {
     // alert("test");
@@ -63,7 +68,6 @@ cardShopping.forEach((e, i) => {
 
     div.style.display = "flex";
     div.style.justifyContent = "space-between";
-
 
     //1 item 
     // let allBill = document.querySelectorAll("#bill");

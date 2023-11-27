@@ -21,14 +21,17 @@
 
   <section id="produk">
     <div class="container relative">
-      <div id="bungkus" class="max-w-4xl 2xl:max-w-none">
+      <div id="bungkus" class="w-full">
         <div class="flex justify-around items-center px-4 py-3 bg-white text-indigo-900 backdrop-blur-xl">
           <img src="./img/WhatsApp_Image_2023-11-17_at_17.12.26-removebg-preview.png" alt="" width=175px" class="cursor-pointer" onclick="location.reload()">
           <div>
             <input type="text" id="search" placeholder="Search..."  class="rounded-full text-center focus:shadow"></input>
             <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
           </div>
-          <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
+          <div>
+            <span id="cart" class="px-2 cursor-pointer"><i class="fa-solid fa-cart-shopping"></i></span>
+            <span class="px-2"><i class="fa-solid fa-ellipsis-vertical"></i></span>
+          </div>
         </div>
         <div class="swiper group">
           <!-- Additional required wrapper -->
@@ -128,7 +131,7 @@
 
   <section id="wishlist">
     <div class="container ">
-      <div id="invoice" class="bg-blue-400 w-96 h-full fixed right-0 top-0 border-l-2 border-indigo-100 z-10 2xl:w-[24rem]" data-aos="fade-left" data-aos-duration="1000">
+      <div id="invoice" class="bg-blue-400 w-96 h-full hidden fixed right-0 top-0 border-l-2 border-indigo-100 z-10 2xl:w-[24rem]" data-aos="fade-left" data-aos-duration="1000">
         <div class="flex flex-col gap-3 pt-16">
           <select name="" id="" class="bg-white mx-auto rounded-md px-16 font-semibold text-lg shadow-lg text-blue-700 py-1">
             <option value="" class="bg-white">Take Away</option>
