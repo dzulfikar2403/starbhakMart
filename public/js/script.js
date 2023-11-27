@@ -37,6 +37,7 @@ cardShopping.forEach((e, i) => {
 
     let pBill = document.createElement("p");
     let numb = 1;
+    pBill.setAttribute('id','countItem');
     pBill.innerHTML = numb;
 
     h2.after(pBill);
@@ -84,6 +85,7 @@ cardShopping.forEach((e, i) => {
       div.remove();
 
       totalAmount();
+      notif();
     });
 
     plus.addEventListener("click", () => {
@@ -96,6 +98,7 @@ cardShopping.forEach((e, i) => {
       h3.innerText = curP;
 
       totalAmount();
+      notif();
     });
 
     minus.addEventListener("click", () => {
@@ -107,7 +110,8 @@ cardShopping.forEach((e, i) => {
 
       h3.innerText = curP;
 
-      totalAmount()
+      totalAmount();
+      notif();
 
       if (numb < 1) {
         div.remove();
@@ -115,6 +119,7 @@ cardShopping.forEach((e, i) => {
     });
 
     totalAmount();
+    notif();
   });
 });
 
@@ -190,6 +195,25 @@ price.forEach((e, i) => {
 
 //   // console.log(allNameProduct);
 // }
+
+
+//func notif
+let notif = ()=>{
+  let cartNotif = document.getElementById('notif');
+  let totalCart = document.querySelectorAll('#countItem');
+  let hasilCart = 0;
+
+  totalCart.forEach((e,i)=>{
+    hasilCart += parseInt(e.textContent);
+
+  })
+  
+  if(hasilCart === 0){
+    cartNotif.style.display = 'none';
+  }
+
+  cartNotif.textContent = hasilCart;
+}
 
 
 
