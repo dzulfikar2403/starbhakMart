@@ -37,3 +37,11 @@ input:focus{
 .iconBack{
   @apply fixed top-[15px] left-[20px] w-[175px] h-[135px] cursor-pointer
 }
+
+.layar-bungkus{
+  @apply w-[56rem]
+}
+
+.tutup-cart{
+  @apply block
+}
