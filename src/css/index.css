@@ -23,7 +23,7 @@ input:focus{
 }
 
 .swiper{
-  @apply h-[30vh] w-[80%] rounded-md;
+  @apply h-[40vh] w-[80%] rounded-md;
 }
 
 .swiper-pagination-bullet-active{
