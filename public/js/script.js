@@ -208,8 +208,8 @@ let notif = ()=>{
 
   })
   
-  if(hasilCart === 0){
-    cartNotif.style.display = 'none';
+  if(hasilCart < 1){
+    cartNotif.textContent = ''
   }
 
   cartNotif.textContent = hasilCart;
