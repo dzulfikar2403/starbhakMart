@@ -45,3 +45,7 @@ input:focus{
 .tutup-cart{
   @apply block
 }
+
+.animate-wishlist{
+  @apply translate-x-0
+}

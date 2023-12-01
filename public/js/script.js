@@ -12,7 +12,7 @@ let invoice = document.getElementById("invoice");
 
 document.getElementById('cart').addEventListener('click',()=>{
   document.getElementById('payBtn').classList.toggle('tutup-cart');
-  invoice.classList.toggle('tutup-cart');
+  invoice.classList.toggle('animate-wishlist');
   document.getElementById('bungkus').classList.toggle('layar-bungkus');
 })
 
