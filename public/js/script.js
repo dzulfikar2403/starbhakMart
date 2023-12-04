@@ -150,9 +150,9 @@ let totalAmount = (e, i) => {
 let objItem = [
   {
     id:1,
-    namaProduct: "Nasi Ayam bakar",
+    namaProduct: "Nasi Ayam Bakar",
     hargaProduct: 20000,
-    img: 'Nasi Ayam bakar',
+    img: 'Nasi Ayam Bakar',
   },
   {
     id:2,
