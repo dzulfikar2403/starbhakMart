@@ -600,6 +600,10 @@ video {
   top: 0px;
 }
 
+.top-2 {
+  top: 0.5rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -683,6 +687,10 @@ video {
   align-items: center;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -733,6 +741,10 @@ video {
   border-top-left-radius: 0.75rem;
 }
 
+.border-b {
+  border-bottom-width: 1px;
+}
+
 .border-b-2 {
   border-bottom-width: 2px;
 }
@@ -750,6 +762,11 @@ video {
   --tw-border-opacity: 1;
   border-top-color: rgb(107 114 128 / var(--tw-border-opacity));
   border-bottom-color: rgb(107 114 128 / var(--tw-border-opacity));
+}
+
+.border-b-violet-400 {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(167 139 250 / var(--tw-border-opacity));
 }
 
 .bg-\[\#001B79\] {
@@ -833,6 +850,11 @@ video {
   padding-right: 0.5rem;
 }
 
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -878,12 +900,12 @@ video {
   padding-top: 4rem;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.font-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .text-2xl {
@@ -904,6 +926,11 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -943,6 +970,11 @@ video {
   color: rgb(234 179 8 / var(--tw-text-opacity));
 }
 
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -977,10 +1009,6 @@ video {
 
 .duration-150 {
   transition-duration: 150ms;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
 }
 
 .duration-500 {
@@ -1060,6 +1088,24 @@ input:focus {
 .animate-wishlist {
   --tw-translate-x: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.placeholder\:font-medium::-moz-placeholder {
+  font-weight: 500;
+}
+
+.placeholder\:font-medium::placeholder {
+  font-weight: 500;
+}
+
+.placeholder\:text-\[\#9ca4d4\]::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(156 164 212 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-\[\#9ca4d4\]::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(156 164 212 / var(--tw-text-opacity));
 }
 
 .hover\:scale-110:hover {

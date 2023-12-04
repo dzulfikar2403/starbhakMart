@@ -25,11 +25,11 @@
         <div class="flex justify-around items-center px-4 py-3 bg-white text-indigo-900 backdrop-blur-xl">
           <img src="./img/WhatsApp_Image_2023-11-17_at_17.12.26-removebg-preview.png" alt="" width=175px" class="cursor-pointer" onclick="location.reload()">
           <div>
-            <input type="text" id="search" placeholder="Search..."  class="rounded-full text-center focus:shadow"></input>
+            <input type="text" id="search" placeholder="Search...                 Ctrl K"  class="rounded-full px-3 border-b border-b-violet-400 placeholder:font-medium placeholder:text-[#9ca4d4] focus:shadow "></input>
             <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
           </div>
           <div>
-            <span id="cart" class="px-2 cursor-pointer relative">
+            <span id="cart" title="cart" class="px-2 cursor-pointer relative">
               <div id="notif" class="absolute -top-1 right-1 text-xs px-1 rounded-full bg-yellow-500">0</div>
               <i class="fa-solid fa-cart-shopping"></i>
             </span>
@@ -56,9 +56,10 @@
           <!-- If we need scrollbar -->
           <!-- <div class="swiper-scrollbar"></div> -->
         </div>
+        <p id="searchAlert" class="hidden justify-center font-mono text-2xl font-bold text-red-600">Barang tidak ada!</p>
         <div id="kotakProduct" class=" grid grid-cols-5 2xl:grid-cols-6 gap-6 px-4 pt-14 pb-20 " >
-          <div id="product" class="shadow w-full rounded-md mt-2 overflow hover:scale-110 transition-all ">
-            <img src="./img/nasi_ayam_bakar.jpg" alt="" id="gambar" class="object-cover object-center h-28 w-full">
+          <div id="product" class="shadow w-full rounded-md mt-2 overflow-hidden hover:scale-110 transition-all ">
+            <img src="" alt="" id="gambar" class="object-cover object-center h-28 w-full">
             <div>
               <h2 id="product-name" class="font-bold p-1  "></h2>
               <div class="flex justify-between ">
@@ -68,7 +69,7 @@
             </div>
           </div>
           <div id="product" class="shadow w-full rounded-md mt-2 overflow-hidden hover:scale-110 transition-all ">
-            <img src="./img/aqua.jpg" alt="" id="gambar" class="object-cover object-center h-28 w-full">
+            <img src="" alt="" id="gambar" class="object-cover object-center h-28 w-full">
             <div>
               <h2 id="product-name" class="font-bold p-1  "></h2>
               <div class="flex justify-between ">
@@ -78,7 +79,7 @@
             </div>
           </div>
           <div id="product" class="shadow w-full rounded-md mt-2 overflow-hidden hover:scale-110 transition-all ">
-            <img src="./img/donat-kentang.jpg" alt="" id="gambar" class="object-cover object-center h-28 w-full">
+            <img src="" alt="" id="gambar" class="object-cover object-center h-28 w-full">
             <div>
               <h2 id="product-name" class="font-bold p-1  "></h2>
               <div class="flex justify-between ">
@@ -88,7 +89,7 @@
             </div>
           </div>
           <div id="product" class="shadow w-full rounded-md mt-2 overflow-hidden hover:scale-110 transition-all ">
-            <img src="./img/pizza.jpg" alt="" id="gambar" class="object-cover object-center h-28 w-full">
+            <img src="" alt="" id="gambar" class="object-cover object-center h-28 w-full">
             <div>
               <h2 id="product-name" class="font-bold p-1  "></h2>
               <div class="flex justify-between ">
@@ -98,7 +99,7 @@
             </div>
           </div>
           <div id="product" class="shadow w-full rounded-md mt-2 overflow-hidden hover:scale-110 transition-all ">
-            <img src="./img/ramen.jpg" alt="" id="gambar" class="object-cover object-center h-28 w-full">
+            <img src="" alt="" id="gambar" class="object-cover object-center h-28 w-full">
             <div>
               <h2 id="product-name" class="font-bold p-1  "></h2>
               <div class="flex justify-between ">
@@ -108,7 +109,7 @@
             </div>
           </div>
           <div id="product" class="shadow w-full rounded-md mt-2 overflow-hidden hover:scale-110 transition-all ">
-            <img src="./img/chiken-curry.jpg" alt="" id="gambar" class="object-cover object-center h-28 w-full">
+            <img src="" alt="" id="gambar" class="object-cover object-center h-28 w-full">
             <div>
               <h2 id="product-name" class="font-bold p-1  "></h2>
               <div class="flex justify-between ">
@@ -118,7 +119,7 @@
             </div>
           </div>
           <div id="product" class="shadow w-full rounded-md mt-2 overflow-hidden hover:scale-110 transition-all ">
-            <img src="./img/oreo-milkshake-recipe.jpg" alt="" id="gambar" class="object-cover object-center h-28 w-full">
+            <img src="" alt="" id="gambar" class="object-cover object-center h-28 w-full">
             <div>
               <h2 id="product-name" class="font-bold p-1  "></h2>
               <div class="flex justify-between ">
@@ -135,6 +136,7 @@
   <section id="wishlist">
     <div class="container ">
       <div id="invoice" class="bg-blue-400 w-96 h-full transition-all duration-500 translate-x-96 fixed right-0 top-0 border-l-2 border-indigo-100 z-10 2xl:w-[24rem]" >
+        <span id="backCart" class="px-4 absolute top-2 cursor-pointer"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
         <div class="flex flex-col gap-3 pt-16">
           <select name="" id="" class="bg-white mx-auto rounded-md px-16 font-semibold text-lg shadow-lg text-blue-700 py-1">
             <option value="" class="bg-white">Take Away</option>

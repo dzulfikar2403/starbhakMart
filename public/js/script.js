@@ -2,6 +2,7 @@ let products = document.querySelectorAll("#product");
 let productsName = document.querySelectorAll("#product-name");
 let price = document.querySelectorAll("#price");
 let cardShopping = document.querySelectorAll("#card-shopping");
+let gambarProducts = document.querySelectorAll('#gambar')
 let bill = document.querySelector(".bill");
 let total = document.getElementById("total");
 let disc = document.getElementById("discount");
@@ -11,10 +12,14 @@ let plus,minus,trashIcon;
 let invoice = document.getElementById("invoice");
 
 document.getElementById('cart').addEventListener('click',()=>{
-  document.getElementById('payBtn').classList.toggle('tutup-cart');
+  document.getElementById('payBtn').classList.add('tutup-cart');
   invoice.classList.toggle('animate-wishlist');
-  document.getElementById('bungkus').classList.toggle('layar-bungkus');
-})
+});
+
+document.getElementById('backCart').addEventListener('click',()=>{
+  document.getElementById('payBtn').classList.remove('tutup-cart');
+  invoice.classList.toggle('animate-wishlist');
+});
 
 cardShopping.forEach((e, i) => {
   e.addEventListener("click", (e) => {
@@ -139,62 +144,139 @@ let totalAmount = (e, i) => {
   total.innerHTML = jumlah;
 };
 
+
+
+
+let objItem = [
+  {
+    id:1,
+    namaProduct: "Nasi Ayam bakar",
+    hargaProduct: 20000,
+    img: 'nasi ayam bakar',
+  },
+  {
+    id:2,
+    namaProduct: "Aqua",
+    hargaProduct: 4000,
+    img: 'Aqua',
+  },
+  {
+    id:3,
+    namaProduct: "Paket Donat salju",
+    hargaProduct: 6000,
+    img: 'Paket Donat salju',
+  },
+  {
+    id:4,
+    namaProduct: "American Pizza",
+    hargaProduct: 98000,
+    img: 'American Pizza',
+  },
+  {
+    id:5,
+    namaProduct: "Japanese Ramen",
+    hargaProduct: 34000,
+    img: 'Japanese Ramen',
+  },
+  {
+    id:6,
+    namaProduct: "Chicken Curry",
+    hargaProduct: 48000,
+    img: 'chiken-curry',
+  },
+  {
+    id:7,
+    namaProduct: "Oreo Milkshake",
+    hargaProduct: 18000,
+    img: 'Oreo Milkshake',
+  },
+]
+
 // name of item
 productsName.forEach((e, i) => {
-  nameProduct = ["Nasi Ayam bakar", "Aqua", "Paket Donat salju", "American Pizza", "Japanese Ramen", "Chicken Curry", "Oreo Milkshake"];
 
-  e.innerText = nameProduct[i];
+  e.innerText = objItem[i].namaProduct;
 });
-
 
 // price of item
+let prices;
 price.forEach((e, i) => {
-  let prices = [20000, 4000, 6000, 98000, 34000, 48000, 18000, 25000];
-  e.innerHTML = prices[i];
+  e.innerHTML = objItem[i].hargaProduct;
 });
+
+//img of item-product
+let imgProducts,nameProduct;
+gambarProducts.forEach((e,i)=>{
+  e.src = `./img/${objItem[i].img}.jpg`;
+})
+
+
+let dataName;
+products.forEach((e,i)=>{
+  dataName = ['nasi ayam bakar','Aqua','Paket Donat salju','American Pizza','Japanese Ramen','chiken-curry','Oreo Milkshake'];
+  e.setAttribute('data-name',dataName[i]);
+})
+
+
+
+let productPriceSearch = [20000,4000,6000,98000,34000,48000,18000];
 
 
 // search func. can fix,but later
-// let search = document.querySelector("#search");
+let search = document.querySelector("#search");
 
-// search.addEventListener("input",(e)=>{
-//   // if(e.key === 'Enter'){
-//     fungsiCari()
-//   // }
-// })
+window.addEventListener("keydown",(e)=>{
+  if(e.key === 'k' && e.ctrlKey){
+    e.preventDefault();
+    search.focus();
+  }  
+})
 
-// let fungsiCari = ()=>{
-//   //ambil input user
-//   let searchValue = search.value.toLowerCase();
+search.addEventListener('input',(e)=>{
+  fungsiCari();
+})
 
-//   // filter array nama product
-//   let nameProductFilter = nameProduct.filter((e)=>{
-//     return e.toLowerCase().includes(searchValue);
-//   })
+let fungsiCari = (e,i)=>{
+  //ambil input user
+  let searchValue = search.value.toLowerCase();
 
-//   products.forEach((e,i) =>{
-//     document.getElementById('kotakProduct').innerHTML = "";
-//     // document.querySelector('.swiper').innerHTML = "";
-//   })
+  // filter array nama product
+  let nameProductFilter = dataName.filter((e)=>{
+    return e.toLowerCase().includes(searchValue);
+  })
 
-//   nameProductFilter.forEach((e,i)=>{
-//     document.getElementById('kotakProduct').innerHTML += `<div id="product" class="shadow w-full rounded-md mt-2 overflow hover:scale-110 transition-all ">
-//     <img src="./img/nasi_ayam_bakar.jpg" alt="" id="gambar" class="object-cover object-center h-28 w-full">
-//     <div>
-//       <h2 id="product-name" class="font-bold p-1  ">${e}</h2>
-//       <div class="flex justify-between ">
-//         <span>Rp.<p id="price" class="inline text-base pl-1  font-mono "></p></span>
-//         <span id="card-shopping" class="px-2 py-1 rounded-tl-xl bg-[skyblue]  text-purple-100 hover:bg-[royalblue] cursor-pointer "><i class="fa-solid fa-cart-shopping fill-current"></i></span>
-//       </div>
-//     </div>
-//   </div>`;
+  document.getElementById('kotakProduct').innerHTML ='';
+  if(!searchValue || search.value === 0){
+    document.querySelector('.swiper').style.display = "flex";
+  }else{
+    document.querySelector('.swiper').style.display = "none";
+  }
 
-//     console.log(e);
-//   });
-  
+ 
+  // productPriceSearch.forEach((el)=>{
+  nameProductFilter.forEach((e,i)=>{
 
-//   // console.log(allNameProduct);
-// }
+      document.getElementById('kotakProduct').innerHTML += `<div id="product" class="shadow w-full rounded-md mt-2 overflow-hidden hover:scale-110 transition-all ">
+      <img src="./img/${e}.jpg" alt="" id="gambar" class="object-cover object-center h-28 w-full">
+      <div>
+      <h2 id="product-name" class="font-bold p-1  ">${e}</h2>
+      <div class="flex justify-between ">
+      <span>Rp.<p id="price" class="inline text-base pl-1  font-mono ">${objItem[i].hargaProduct}</p></span>
+      <span id="card-shopping" onclick="" class="px-2 py-1 rounded-tl-xl bg-[skyblue]  text-purple-100 hover:bg-[royalblue] cursor-pointer "><i class="fa-solid fa-cart-shopping fill-current"></i></span>
+      </div>
+      </div>
+      </div>`;
+      
+      console.log(e);
+    });
+    
+    // perbandingan array dan string menggunakan !=, krn tipe data tidak sama.
+    if(nameProductFilter != ''){
+      document.getElementById('searchAlert').style.display = 'none'
+    }else{
+      document.getElementById('searchAlert').style.display = 'flex'
+    }
+}
 
 
 //func notif
