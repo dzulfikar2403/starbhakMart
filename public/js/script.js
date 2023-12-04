@@ -152,7 +152,7 @@ let objItem = [
     id:1,
     namaProduct: "Nasi Ayam bakar",
     hargaProduct: 20000,
-    img: 'nasi ayam bakar',
+    img: 'Nasi Ayam bakar',
   },
   {
     id:2,
@@ -213,13 +213,10 @@ gambarProducts.forEach((e,i)=>{
 
 let dataName;
 products.forEach((e,i)=>{
-  dataName = ['nasi ayam bakar','Aqua','Paket Donat salju','American Pizza','Japanese Ramen','chiken-curry','Oreo Milkshake'];
+  dataName = ['Nasi Ayam Bakar','Aqua','Paket Donat salju','American Pizza','Japanese Ramen','chiken-curry','Oreo Milkshake'];
   e.setAttribute('data-name',dataName[i]);
 })
 
-
-
-let productPriceSearch = [20000,4000,6000,98000,34000,48000,18000];
 
 
 // search func. can fix,but later
