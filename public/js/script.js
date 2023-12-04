@@ -156,9 +156,9 @@ let objItem = [
   },
   {
     id:2,
-    namaProduct: "Aqua",
+    namaProduct: "aqua",
     hargaProduct: 4000,
-    img: 'Aqua',
+    img: 'aqua',
   },
   {
     id:3,
@@ -199,13 +199,11 @@ productsName.forEach((e, i) => {
 });
 
 // price of item
-let prices;
 price.forEach((e, i) => {
   e.innerHTML = objItem[i].hargaProduct;
 });
 
 //img of item-product
-let imgProducts,nameProduct;
 gambarProducts.forEach((e,i)=>{
   e.src = `./img/${objItem[i].img}.jpg`;
 })
@@ -213,7 +211,7 @@ gambarProducts.forEach((e,i)=>{
 
 let dataName;
 products.forEach((e,i)=>{
-  dataName = ['Nasi Ayam Bakar','Aqua','Paket Donat salju','American Pizza','Japanese Ramen','chiken-curry','Oreo Milkshake'];
+  dataName = ['Nasi Ayam Bakar','aqua','Paket Donat salju','American Pizza','Japanese Ramen','chiken-curry','Oreo Milkshake'];
   e.setAttribute('data-name',dataName[i]);
 })
 
